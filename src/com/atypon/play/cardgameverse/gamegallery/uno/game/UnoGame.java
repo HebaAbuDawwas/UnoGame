@@ -97,10 +97,9 @@ public class UnoGame extends Game {
     }
 
     private void drawCards(Player player) {
-        Card cardSetTopCard = deck.getCards().get(deck.getCards().size() - 1);
+        Card deckCard = deck.getCards().remove(0);
         for (int i = 0; i < gameStatus.getCardsToDrawNumber(); i++) {
-            player.addCardToHand(cardSetTopCard);
-            deck.getCards().remove(cardSetTopCard);
+            player.addCardToHand(deckCard);
         }
         gameStatus.setCardsToDrawNumber(ZERO);
     }
