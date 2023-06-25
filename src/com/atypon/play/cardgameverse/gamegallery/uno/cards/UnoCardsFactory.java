@@ -1,5 +1,6 @@
 package com.atypon.play.cardgameverse.gamegallery.uno.cards;
 
+import com.atypon.play.cardgameverse.coreengine.Card;
 import com.atypon.play.cardgameverse.gamegallery.uno.cards.enums.ActionCardType;
 import com.atypon.play.cardgameverse.gamegallery.uno.cards.enums.CardColor;
 import com.atypon.play.cardgameverse.gamegallery.uno.cards.enums.CardNumber;

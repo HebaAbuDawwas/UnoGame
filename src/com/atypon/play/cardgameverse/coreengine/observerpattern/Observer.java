@@ -1,7 +1,7 @@
 package com.atypon.play.cardgameverse.coreengine.observerpattern;
 
-import com.atypon.play.cardgameverse.gamegallery.uno.cards.Card;
+import com.atypon.play.cardgameverse.coreengine.GameStatus;
 
 public interface Observer {
-    void update(Card CurrentCard, int CardsToDrawNumber);
+    void update(GameStatus gameStatus);
 }

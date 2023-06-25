@@ -1,21 +1,18 @@
 package com.atypon.play.cardgameverse.coreengine;
 
 import com.atypon.play.cardgameverse.coreengine.observerpattern.Observer;
-import com.atypon.play.cardgameverse.gamegallery.uno.cards.Card;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.atypon.play.cardgameverse.gamegallery.uno.constants.Constants.WINNER_MESSAGE;
-
-public class Player implements Observer {
+public abstract class Player implements Observer {
     private final String name;
 
     private List<Card> hand;
 
     public Player(String name) {
         this.name = name;
-        this.hand = new ArrayList<Card>();
+        this.hand = new ArrayList<>();
     }
 
     public String getName() {
@@ -36,28 +33,21 @@ public class Player implements Observer {
         }
     }
 
-    public void addCardToHand(Card unoCard) {
-        hand.add(unoCard);
+    public void addCardToHand(Card card) {
+        hand.add(card);
     }
 
-    public void removeCardFromHand(Card unoCard) {
-        hand.remove(unoCard);
+    public void removeCardFromHand(Card card) {
+        hand.remove(card);
     }
 
-    public boolean hasWon() {
-        if (hand.isEmpty()) {
-            System.out.println(getName() + WINNER_MESSAGE);
-            return true;
-        }
-        return false;
-    }
+    public abstract boolean hasWon();
 
-    public void update(Card currentCard, int cardsToDrawNumber) {
+    public void update(GameStatus gameStatus) {
         System.out.println(name);
         System.out.println("Your Cards : ");
         showHand();
-        System.out.println("Current Card : " + currentCard.toString());
-        if (cardsToDrawNumber > 0) System.out.println("Number of cards you need to draw : " + cardsToDrawNumber);
+        System.out.println(gameStatus.toString());
     }
 
     @Override

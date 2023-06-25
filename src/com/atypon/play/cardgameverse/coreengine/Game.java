@@ -11,10 +11,8 @@ public abstract class Game implements Subject {
 
 
     protected CardSet deck;
-
     protected List<Observer> observers;
     protected List<Player> players;
-
     protected Game(CardSet cardSet) {
         this.deck = cardSet;
         players = new ArrayList<>();

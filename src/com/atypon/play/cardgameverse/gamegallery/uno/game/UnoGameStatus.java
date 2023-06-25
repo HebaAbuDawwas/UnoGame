@@ -1,17 +1,18 @@
 package com.atypon.play.cardgameverse.gamegallery.uno.game;
 
-import com.atypon.play.cardgameverse.gamegallery.uno.cards.Card;
+import com.atypon.play.cardgameverse.coreengine.GameStatus;
+import com.atypon.play.cardgameverse.gamegallery.uno.cards.UnoCard;
 
 import static com.atypon.play.cardgameverse.gamegallery.uno.constants.Constants.ONE;
 import static com.atypon.play.cardgameverse.gamegallery.uno.constants.Constants.ZERO;
 
-public class UnoGameStatus {
+public class UnoGameStatus extends GameStatus {
     private final int playersCount;
     private boolean isGameFinished;
     private int cardsToDrawNumber;
     private boolean isClockWise;
     private int currentPlayerIndex;
-    private Card currentCard;
+    private UnoCard currentCard;
 
     public UnoGameStatus(int playersCount) {
         isGameFinished = false;
@@ -95,11 +96,17 @@ public class UnoGameStatus {
         this.currentPlayerIndex++;
     }
 
-    public Card getCurrentCard() {
+    public UnoCard getCurrentCard() {
         return currentCard;
     }
 
-    public void setCurrentCard(Card currentCard) {
+    public void setCurrentCard(UnoCard currentCard) {
         this.currentCard = currentCard;
+    }
+
+    @Override
+    public String toString() {
+        return "CurrentCard : " + currentCard +"\n" +
+                (cardsToDrawNumber>0?("Number Of Cards To Draw : " + cardsToDrawNumber):(""));
     }
 }

@@ -1,8 +1,9 @@
 package com.atypon.play.cardgameverse.gamegallery.uno.utils;
 
+import com.atypon.play.cardgameverse.coreengine.Card;
 import com.atypon.play.cardgameverse.coreengine.CardSet;
 import com.atypon.play.cardgameverse.coreengine.Player;
-import com.atypon.play.cardgameverse.gamegallery.uno.cards.Card;
+import com.atypon.play.cardgameverse.gamegallery.uno.cards.UnoCard;
 import com.atypon.play.cardgameverse.gamegallery.uno.cards.enums.CardColor;
 
 import java.util.ArrayList;

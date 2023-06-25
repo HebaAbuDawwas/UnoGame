@@ -1,10 +1,11 @@
 package com.atypon.play.cardgameverse.gamegallery.uno.game;
 
 
+import com.atypon.play.cardgameverse.coreengine.Card;
 import com.atypon.play.cardgameverse.coreengine.Game;
 import com.atypon.play.cardgameverse.coreengine.Player;
-import com.atypon.play.cardgameverse.gamegallery.uno.cards.Card;
 import com.atypon.play.cardgameverse.gamegallery.uno.cards.NumberCard;
+import com.atypon.play.cardgameverse.gamegallery.uno.cards.UnoCard;
 import com.atypon.play.cardgameverse.gamegallery.uno.cards.UnoCardSet;
 import com.atypon.play.cardgameverse.gamegallery.uno.cards.visitors.CardPlayVisitor;
 import com.atypon.play.cardgameverse.gamegallery.uno.cards.visitors.ValidCardToPlayVisitor;
@@ -58,7 +59,7 @@ public class UnoGame extends Game {
                 if (gameStatus.getCardsToDrawNumber() == ZERO) gameStatus.increaseCardsToDrawNumber(ONE);
                 drawCards(player);
             } else {
-                Card moveCard = player.getHand().get(moveCardIndex);
+                UnoCard moveCard = (UnoCard) player.getHand().get(moveCardIndex);
                 try {
                     ValidCardToPlayVisitor validCardToPlayVisitor = new ValidCardToPlayVisitor(gameStatus);
                     moveCard.accept(validCardToPlayVisitor);
@@ -97,7 +98,7 @@ public class UnoGame extends Game {
     }
 
     private void drawCards(Player player) {
-        Card deckCard = deck.getCards().remove(0);
+        Card deckCard = deck.getCards().remove(ZERO);
         for (int i = 0; i < gameStatus.getCardsToDrawNumber(); i++) {
             player.addCardToHand(deckCard);
         }
@@ -111,7 +112,7 @@ public class UnoGame extends Game {
 
     private void setInitialCard() {
         for (int i = deck.getCards().size() - 1; i > 0; i--) {
-            Card card = deck.getCards().get(i);
+            UnoCard card = (UnoCard) deck.getCards().get(i);
             if (card instanceof NumberCard) {
                 gameStatus.setCurrentCard(card);
                 break;
@@ -123,7 +124,7 @@ public class UnoGame extends Game {
     @Override
     public void notifyObservers() {
         for (Player player : players) {
-            player.update(gameStatus.getCurrentCard(), gameStatus.getCardsToDrawNumber());
+            player.update(gameStatus);
         }
     }
 }

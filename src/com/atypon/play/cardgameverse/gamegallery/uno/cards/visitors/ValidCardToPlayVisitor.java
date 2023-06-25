@@ -6,7 +6,7 @@ import com.atypon.play.cardgameverse.gamegallery.uno.cards.enums.ActionCardType;
 import com.atypon.play.cardgameverse.gamegallery.uno.cards.enums.CardColor;
 import com.atypon.play.cardgameverse.gamegallery.uno.game.UnoGameStatus;
 
-import static com.atypon.play.cardgameverse.gamegallery.uno.constants.Constants.INVALID_TO_CARD_TO_PLAY;
+import static com.atypon.play.cardgameverse.gamegallery.uno.constants.Constants.INVALID_CARD_TO_PLAY;
 import static com.atypon.play.cardgameverse.gamegallery.uno.constants.Constants.ZERO;
 
 public class ValidCardToPlayVisitor implements CardVisitor {
@@ -23,7 +23,7 @@ public class ValidCardToPlayVisitor implements CardVisitor {
             isValidMove = true;
 
         if (!isValidMove)
-            throw new IllegalArgumentException(INVALID_TO_CARD_TO_PLAY);
+            throw new IllegalArgumentException(INVALID_CARD_TO_PLAY);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class ValidCardToPlayVisitor implements CardVisitor {
             }
         }
         if (!isValidMove)
-            throw new IllegalArgumentException(INVALID_TO_CARD_TO_PLAY);
+            throw new IllegalArgumentException(INVALID_CARD_TO_PLAY);
 
     }
 
