@@ -3,7 +3,6 @@ package com.atypon.play.cardgameverse.gamegallery.uno.utils;
 import com.atypon.play.cardgameverse.coreengine.Card;
 import com.atypon.play.cardgameverse.coreengine.CardSet;
 import com.atypon.play.cardgameverse.coreengine.Player;
-import com.atypon.play.cardgameverse.gamegallery.uno.cards.UnoCard;
 import com.atypon.play.cardgameverse.gamegallery.uno.cards.enums.CardColor;
 
 import java.util.ArrayList;
@@ -11,8 +10,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.atypon.play.cardgameverse.gamegallery.uno.constants.Constants.ENTER_COLOR;
-import static com.atypon.play.cardgameverse.gamegallery.uno.constants.Constants.INVALID_COLOR;
+import static com.atypon.play.cardgameverse.gamegallery.uno.constants.Constants.*;
 
 public class CardsUtils {
 
@@ -46,4 +44,15 @@ public class CardsUtils {
 
         return color;
     }
+
+    public static int readMoveCardIndex(int playerHandSize) {
+        System.out.println(ENTER_CARD_INDEX);
+        Scanner scanner = new Scanner(System.in);
+        int cardIndex = scanner.nextInt();
+        if (cardIndex < -1 || cardIndex >= playerHandSize)
+            throw new IndexOutOfBoundsException(INVALID_TO_CARD_TO_PLAY_INDEX);
+        return cardIndex;
+
+    }
+
 }

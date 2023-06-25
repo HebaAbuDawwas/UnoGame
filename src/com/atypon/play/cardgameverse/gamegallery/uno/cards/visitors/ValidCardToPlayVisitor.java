@@ -10,7 +10,7 @@ import static com.atypon.play.cardgameverse.gamegallery.uno.constants.Constants.
 import static com.atypon.play.cardgameverse.gamegallery.uno.constants.Constants.ZERO;
 
 public class ValidCardToPlayVisitor implements CardVisitor {
-    UnoGameStatus gameStatus;
+    private UnoGameStatus gameStatus;
 
     public ValidCardToPlayVisitor(UnoGameStatus gameStatus) {
         this.gameStatus = gameStatus;

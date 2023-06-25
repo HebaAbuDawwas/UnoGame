@@ -30,4 +30,10 @@ public class UnoCardSet implements CardSet {
         return cardSet;
     }
 
+    @Override
+    public String toString() {
+        return "UnoCardSet{" +
+                "cardSet=" + cardSet +
+                '}';
+    }
 }

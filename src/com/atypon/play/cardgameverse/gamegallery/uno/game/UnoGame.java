@@ -9,9 +9,9 @@ import com.atypon.play.cardgameverse.gamegallery.uno.cards.UnoCard;
 import com.atypon.play.cardgameverse.gamegallery.uno.cards.UnoCardSet;
 import com.atypon.play.cardgameverse.gamegallery.uno.cards.visitors.CardPlayVisitor;
 import com.atypon.play.cardgameverse.gamegallery.uno.cards.visitors.ValidCardToPlayVisitor;
+import com.atypon.play.cardgameverse.gamegallery.uno.utils.CardsUtils;
 
 import java.util.List;
-import java.util.Scanner;
 
 import static com.atypon.play.cardgameverse.gamegallery.uno.constants.Constants.*;
 import static com.atypon.play.cardgameverse.gamegallery.uno.utils.CardsUtils.dealCards;
@@ -32,14 +32,6 @@ public class UnoGame extends Game {
         return new UnoGame(players);
     }
 
-    private static int readMoveCardIndex(int playerHandSize) {
-        System.out.println(ENTER_CARD_INDEX);
-        Scanner scanner = new Scanner(System.in);
-        int cardIndex = scanner.nextInt();
-        if (cardIndex < -1 || cardIndex >= playerHandSize)
-            throw new IndexOutOfBoundsException(INVALID_TO_CARD_TO_PLAY_INDEX);
-        return cardIndex;
-    }
 
     @Override
     public void play() {
@@ -50,7 +42,7 @@ public class UnoGame extends Game {
             int moveCardIndex;
 
             try {
-                moveCardIndex = readMoveCardIndex(player.getHand().size());
+                moveCardIndex = CardsUtils.readMoveCardIndex(player.getHand().size());
             } catch (IndexOutOfBoundsException exception) {
                 System.out.println(exception.getMessage());
                 continue;

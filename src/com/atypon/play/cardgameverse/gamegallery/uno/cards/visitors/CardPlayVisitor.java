@@ -9,7 +9,7 @@ import static com.atypon.play.cardgameverse.gamegallery.uno.constants.Constants.
 import static com.atypon.play.cardgameverse.gamegallery.uno.utils.CardsUtils.readNewWildCardColor;
 
 public class CardPlayVisitor implements CardVisitor {
-    UnoGameStatus gameStatus;
+    private UnoGameStatus gameStatus;
 
     public CardPlayVisitor(UnoGameStatus gameStatus) {
         this.gameStatus = gameStatus;
